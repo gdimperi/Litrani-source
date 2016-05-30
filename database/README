@@ -1,0 +1,23 @@
+Where to put the 2 "database" files SplineFitDB.rdb and SpectraDB.rdb?
+
+The simplest solution is to put them into the same directory as the one containing
+the executable "litrani" [linux] or "litrani.exe" [Windows]. In that case, you have
+nothing to do and litrani will immediatly find the 2 files. For instance,
+ - if you start Litrani from the directory ".../litrani" where you have compiled
+and linked it, then put the two database files there. 
+ - if you start Litrani from the directory "$ROOTDEV/bin" [linux] or
+"%ROOTDEV%\bin" [Windows] where it has been installed by the Makefile,then put the
+two database files there. 
+
+if you insist to not put the two database files into the directory where the
+executable "litrani" is, but want to put these two files into a specified
+directory, for instance
+
+   /home/mnt/gentit/mydatabases [linux] or 
+   D:\databases\mydatabases [Windows] 
+
+it is also possible, but you have then to put in front of all your CINT macros
+using them following line:
+
+ TLitSpectrum::NameFile("/home/mnt/gentit/mydatabases/SpectraDB.rdb"); [linux] or 
+ TLitSpectrum::NameFile("D:\\databases\\mydatabases\\SpectraDB.rdb"); [Windows] 
