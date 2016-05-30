@@ -15,6 +15,8 @@
 #include "TObjArray.h"
 #include "T33Matrix.h"
 
+using namespace std;
+
 class T3Vector : public TObject {
 
 

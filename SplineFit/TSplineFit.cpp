@@ -15,6 +15,8 @@
 #include "TBandedLE.h"
 #include "TSplineFit.h"
 
+using namespace std;
+
 R__EXTERN TwoPadDisplay *gTwoPad;
 TSplineFit *gSplineFit = 0;
 

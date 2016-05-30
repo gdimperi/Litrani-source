@@ -28,14 +28,15 @@ CXX           = g++
 CXXFLAGS      = -O -Wall -fPIC -I$(ROOTDEV)/include 
 LD            = g++
 LDFLAGS       = -O
-SOFLAGS       = -shared
+PROGRAMSO = $(LIBNAME).$(DllSuf)
+SOFLAGS       = -shared -DT_SONAME=$(PROGRAMSO) 
 
 LIBNAME       = libVisuLitrani
 PROGRAMLIB    = $(LIBNAME).lib
 CXXFLAGS     += $(ROOTCFLAGS)
 LIBS          = $(ROOTLIBS) $(SYSLIBS)
-LIBS         += -L$(ROOTSYS)/lib -lSpectrum -lGui -lHtml -lGuiHtml
-LIBS         += -L$(ROOTDEV)/lib -lTwoPad -lSplineFit -lLitrani
+LIBS         += -L$(ROOTDEV)/lib  -lTwoPad  -lLitrani -lSplineFit  
+LIBS         += -L$(ROOTLIBS) -lSpectrum -lGui -lHtml -lGuiHtml
 GLIBS         = $(ROOTGLIBS) $(SYSLIBS)
 
 #------------------------------------------------------------------------------
@@ -46,7 +47,6 @@ SRCS          = main.$(SrcSuf) TVisuLit.$(SrcSuf) VisuLitraniDict.$(SrcSuf)
 OBJS          = TVisuLit.$(ObjSuf) VisuLitraniDict.$(ObjSuf)
 
 
-PROGRAMSO = $(LIBNAME).$(DllSuf)
 PROGRAM   = VisuLitrani$(ExeSuf)
 
 all:        $(PROGRAMSO) $(PROGRAM)

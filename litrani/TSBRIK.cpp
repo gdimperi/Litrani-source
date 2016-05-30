@@ -8,6 +8,10 @@
 #include "TSupplShape.h"
 #include "TFace.h"
 #include "TSBRIK.h"
+#include<iostream>
+
+using namespace std;
+
 ClassImp(TSBRIK)
 //______________________________________________________________________________
 //

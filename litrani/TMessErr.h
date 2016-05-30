@@ -14,6 +14,8 @@
 //////////////////////////////////////////////////////////////////////////
 #include "TNamed.h"
 
+using namespace std;
+
 enum KindOfMes {Info_M,Warning_M,Error_M,kill_this,kill_prog};
 
 class TString;

@@ -84,10 +84,10 @@ void TAuthor::Init() {
 }
 void TAuthor::Print() const {
   // Prints everything
-  cout << "Name     : " << GetName() << endl;
-  cout << "Address  : " << GetTitle() << endl;
-  if (fMail.Length() > 0)    cout << "Mail     : " << fMail.Data() << endl;
-  if (fWebSite.Length() > 0) cout << "Web site : " << fWebSite.Data() << endl;
-  if (fCountry.Length() > 0) cout << "Country  : " << fCountry.Data() << endl;
-  if (fPhone.Length() > 0)   cout << "Phone    : " << fPhone.Data() << endl;
+  std::cout << "Name     : " << GetName() << std::endl;
+  std::cout << "Address  : " << GetTitle() << std::endl;
+  if (fMail.Length() > 0)    std::cout << "Mail     : " << fMail.Data() << std::endl;
+  if (fWebSite.Length() > 0) std::cout << "Web site : " << fWebSite.Data() << std::endl;
+  if (fCountry.Length() > 0) std::cout << "Country  : " << fCountry.Data() << std::endl;
+  if (fPhone.Length() > 0)   std::cout << "Phone    : " << fPhone.Data() << std::endl;
 }

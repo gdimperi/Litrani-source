@@ -18,6 +18,8 @@
 #include "TLitSpectrumCp.h"
 #include "TLitSpectrum.h"
 
+using namespace std;
+
 Int_t     gLitSpecNb  = 0;
 
 Int_t       TLitSpectrum::fgNextDraw       = 0;
@@ -1167,7 +1169,7 @@ Bool_t TLitSpectrum::FindPeaks(Int_t deconIterations,Double_t threshold,
   Double_t  xmin;
   Double_t  xmax;
   Float_t   xp,yp;
-  Float_t  *source, *dest;
+  Double_t  *source, *dest;
   Float_t  *PositionX;
   Float_t  *PositionY;
   Float_t  *xpeaks;
@@ -1206,8 +1208,8 @@ Bool_t TLitSpectrum::FindPeaks(Int_t deconIterations,Double_t threshold,
     cout << "last  : " << last  << endl;
     cout << "size  : " << size  << endl;
   }
-  source = new Float_t[size];
-  dest   = new Float_t[size];
+  source = new Double_t[size];
+  dest   = new Double_t[size];
   step   = (xmax-xmin)/nchan;
   steps2 = step/2.0;
   x = xmin + steps2;
@@ -1229,8 +1231,8 @@ Bool_t TLitSpectrum::FindPeaks(Int_t deconIterations,Double_t threshold,
   }
   gLitSpecNb = sp->SearchHighRes(source,dest,size,sigma,100*threshold,kFALSE,
     deconIterations,kFALSE,3);
-  PositionX = sp->GetPositionX();
-  PositionY = sp->GetPositionY();
+  PositionX = (Float_t*)sp->GetPositionX();
+  PositionY = (Float_t*)sp->GetPositionY();
   for (i = 0; i < gLitSpecNb; i++) {
     bin = first + Int_t(PositionX[i] + 0.5);
     PositionX[i] = fH->GetBinCenter(bin);
@@ -1267,7 +1269,7 @@ Bool_t TLitSpectrum::FindPeaks(Int_t deconIterations,Double_t threshold,
     }
   }
   //Loop on all found peaks. Eliminate peaks too close to edge
-  xpeaks = sp->GetPositionX();
+  xpeaks = (Float_t*)sp->GetPositionX();
   nfound = gLitSpecNb;
   if (ppar) {
     delete [] ppar;

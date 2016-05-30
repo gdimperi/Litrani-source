@@ -15,6 +15,8 @@
 #include "TObject.h"
 #include "TMath.h"
 
+using namespace std;
+
 class TCplxRhoPhi {
 
 protected:

@@ -25,18 +25,20 @@ ROOTGLIBS     = $(shell root-config --glibs)
 
 # Linux with egcs
 CXX           = g++
-#CXXFLAGS      = -g -m32 -Wall -fPIC
-CXXFLAGS      = -O -m32 -Wall -fPIC
+#CXXFLAGS      = -g -m64 -Wall -fPIC
+CXXFLAGS      = -O -m64 -Wall -fPIC
 LD            = g++
-#LDFLAGS       = -g -m32
-LDFLAGS       = -O -m32
-SOFLAGS       = -shared
-
+#LDFLAGS       = -g -m64
+LDFLAGS       = -O -m64
 LIBNAME       = libTwoPad
+PROGRAMSO = $(LIBNAME).$(DllSuf)
+SOFLAGS       = -shared -DT_SONAME=$(PROGRAMSO) 
+
 PROGRAMLIB    = $(LIBNAME).lib
 CXXFLAGS     += $(ROOTCFLAGS)
 LIBS          = $(ROOTLIBS) $(SYSLIBS)
-LIBS         += -L$(ROOTSYS)/lib -lGui -lHtml -lGuiHtml
+#LIBS         += -L$(ROOTSYS)/lib -lGui -lHtml -lGuiHtml
+LIBS          += -L$(ROOTLIBS) -lGui -lHtml -lGuiHtml
 GLIBS         = $(ROOTGLIBS) $(SYSLIBS)
 
 #------------------------------------------------------------------------------
@@ -47,7 +49,6 @@ SRCS          = main.$(SrcSuf) TGRootIDE.$(SrcSuf) TAuthor.$(SrcSuf) TReference.
 OBJS          = TGRootIDE.$(ObjSuf) TReference.$(ObjSuf) TAuthor.$(ObjSuf) TwoPadDisplay.$(ObjSuf) \
                 TwoPadDict.$(ObjSuf)
 
-PROGRAMSO = $(LIBNAME).$(DllSuf)
 PROGRAM   = TwoPad$(ExeSuf)
 
 all:        $(PROGRAMSO) $(PROGRAM)

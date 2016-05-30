@@ -16,6 +16,8 @@
 #include "TLitSpectrum.h"
 #include "TSellmeier.h"
 
+using namespace std;
+
 enum MethodUsed {undefined,constant,byfit,sellmeier};
 enum dEdxMethod {nodEdx,WithoutLandau,WithLandau};
 

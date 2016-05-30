@@ -8,6 +8,8 @@
 #include "TApplication.h"
 #include "TCleanOut.h"
 
+using namespace std;
+
 TCleanOut *gCleanOut = 0;
 
 ClassImp(TCleanOut)

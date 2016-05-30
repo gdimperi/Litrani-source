@@ -27,6 +27,8 @@
 #include "TSpontan.h"
 #include "TLitGlob.h"
 
+using namespace std;
+
 TLitGlob*       gLit = 0;
 
 ClassImp(TLitGlob)

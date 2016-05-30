@@ -7,6 +7,8 @@
 #include "Riostream.h"
 #include "TBandedLE.h"
 
+using namespace std;
+
 ClassImp(TBandedLE)
 //______________________________________________________________________________
 //

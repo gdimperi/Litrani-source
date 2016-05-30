@@ -24,20 +24,23 @@ ROOTLIBS      = $(shell root-config --libs)
 ROOTGLIBS     = $(shell root-config --glibs)
 
 CXX           = g++
-#CXXFLAGS      = -g -m32 -Wall -fPIC -I$(ROOTDEV)/include 
-CXXFLAGS      = -O -m32 -Wall -fPIC -I$(ROOTDEV)/include
+#CXXFLAGS      = -g -m64 -Wall -fPIC -I$(ROOTDEV)/include 
+CXXFLAGS      = -O -m64 -Wall -fPIC -I$(ROOTDEV)/include
 LD            = g++
-#LDFLAGS       = -g -m32
-LDFLAGS       = -O -m32
+#LDFLAGS       = -g -m64
+LDFLAGS       = -O -m64
 
 LIBNAME       = libSplineFit
 PROGRAMSO     = $(LIBNAME).$(DllSuf)
 PROGRAM       = SplineFit$(ExeSuf)
-SOFLAGS       = -shared -soname=$(PROGRAMSO)
+SOFLAGS       = -shared -DT_SONAME=$(PROGRAMSO) #-soname=$(PROGRAMSO)
+#SOFLAGS       = -shared -soname=$(PROGRAMSO)
 CXXFLAGS     += $(ROOTCFLAGS)
 LIBS          = $(ROOTLIBS) $(SYSLIBS)
-LIBS         += -L$(ROOTSYS)/lib -lGui -lHtml -lGuiHtml
+#LIBS         += -L$(ROOTSYS)/lib -lGui -lHtml -lGuiHtml
+#LIBS         += -L$(ROOTDEV)/lib -lTwoPad
 LIBS         += -L$(ROOTDEV)/lib -lTwoPad
+LIBS         += -L$(ROOTLIBS) -lGui -lHtml -lGuiHtml
 
 #------------------------------------------------------------------------------
 

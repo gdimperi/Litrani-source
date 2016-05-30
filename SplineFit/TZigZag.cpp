@@ -8,6 +8,8 @@
 #include "TMath.h"
 #include "TZigZag.h"
 
+using namespace std;
+
 ClassImp(TZigZag)
 //______________________________________________________________________________
 //

@@ -31,11 +31,11 @@ LDFLAGS       = -O
 LIBNAME       = libLitrani
 PROGRAMSO     = $(LIBNAME).$(DllSuf)
 PROGRAM       = litrani$(ExeSuf)
-SOFLAGS       = -shared -soname=$(PROGRAMSO)
+SOFLAGS       = -shared -DT_SONAME=$(PROGRAMSO) #-soname=$(PROGRAMSO)
 CXXFLAGS     += $(ROOTCFLAGS)
 LIBS          = $(ROOTLIBS) $(SYSLIBS)
-LIBS         += -L$(ROOTSYS)/lib -lSpectrum -lGui -lHtml -lGuiHtml
 LIBS         += -L$(ROOTDEV)/lib -lTwoPad -lSplineFit
+LIBS         += -L$(ROOTLIBS) -lSpectrum -lGui -lHtml -lGuiHtml
 
 #------------------------------------------------------------------------------
 

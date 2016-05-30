@@ -14,6 +14,8 @@
 #include "TGRootIDE.h"
 #include "TwoPadDisplay.h"
 
+using namespace std;
+
 TwoPadDisplay* gTwoPad = 0;
 
 ClassImp(TwoPadDisplay)

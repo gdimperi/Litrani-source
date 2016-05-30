@@ -15,6 +15,7 @@
 #include "TObject.h"
 #include "TString.h"
 #include "TComplex.h"
+using namespace std;
 
 enum KindOfMessage {always,debug,info,warning,error,killthis,fatal};
 

@@ -20,6 +20,8 @@
 #include "TLitGlob.h"
 #include "TVisuLit.h"
 
+using namespace std;
+
 R__EXTERN TResults     *gGs;
 R__EXTERN TResults     *gCs;
 R__EXTERN TPublication *gGp;
